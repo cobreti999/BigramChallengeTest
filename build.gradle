@@ -1,5 +1,12 @@
 plugins {
     id 'java'
+    id "application"
+}
+mainClassName = "com.gohealth.main.Application"
+apply plugin : "java"
+
+ext {
+    javaMainClass = "com.gohealth.main.Application"
 }
 
 group 'org.gohealth'
@@ -12,5 +19,5 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
