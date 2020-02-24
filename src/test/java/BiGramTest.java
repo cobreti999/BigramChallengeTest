@@ -67,7 +67,7 @@ public class BiGramTest {
     }
 
     /**
-     * Tests the generated histogram.
+     * Tests if the histogram is generated correctly.
      */
     @Test
     public void calcHistogramShouldPopulateHistogramCorrectlyTest() {
@@ -77,6 +77,10 @@ public class BiGramTest {
         LinkedHashMap<String, Integer> actualValue2 = biGram.generate(testString2);
         assertEquals(expectedValue2, actualValue2);
     }
+
+    /**
+     * Tests if the histogram is printed correctly.
+     */
 
     @Test
     public void printHistogramShouldPrintHistogramCorrectlyTest() {
@@ -95,6 +99,10 @@ public class BiGramTest {
         assertEquals(expectedValue, actualValue.toString());
     }
 
+    /**
+     * Tests if the sanitization method removes the punctuation correctly.
+     */
+
     @Test
     public void sanitizeTextShouldRemovePunctuationTest() {
         String testString = "the fox. the fox";
@@ -102,12 +110,20 @@ public class BiGramTest {
         assertEquals(2, actualValue.get("the fox").intValue());
     }
 
+    /**
+     * Tests if the sanitization method removes the extra white spaces correctly.
+     */
+
     @Test
     public void sanitizeTextShouldRemoveExtraWhiteSpacesTest() {
         String testString = "the fox.  the fox";
         LinkedHashMap<String, Integer> actualValue = biGram.generate(testString);
         assertEquals(2, actualValue.get("the fox").intValue());
     }
+
+    /**
+     * Tests if the sanitization method works ignoring the captalization.
+     */
 
     @Test
     public void sanitizeTextShouldDowncasesAllLettersTest() {
